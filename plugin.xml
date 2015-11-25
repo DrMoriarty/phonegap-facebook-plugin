@@ -111,6 +111,23 @@
         <framework src="Security.framework" weak="true" />
 
     </platform>
+  
+    <!-- winphone8 -->
+    <platform name="wp8">
+      <config-file target="config.xml" parent="/*">
+        <feature name="FacebookConnectPlugin">
+          <param name="wp-package" value="FacebookConnectPlugin"/>
+        </feature>
+      </config-file>
+      <config-file target="Properties/WMAppManifest.xml" parent="/Deployment/App/Extensions">
+        <Protocol Name="fb$APP_ID" NavUriFragment="encodedLaunchUri=%s" TaskID="_default" />
+      </config-file>
+      <framework src="platforms/wp8/Newtonsoft.Json.dll" custom="true"/>
+      <framework src="platforms/wp8/Facebook.dll" custom="true"/>
+      <framework src="platforms/wp8/Facebook.Client.dll" custom="true"/>
+      <source-file src="platforms/wp8/JsonNetSerializer.cs"/>
+      <source-file src="platforms/wp8/FacebookConnectPlugin.cs"/>
+    </platform>
 
     <!-- browser -->
     <platform name="browser">
